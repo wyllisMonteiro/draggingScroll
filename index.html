@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        body{
+            background-color: ivory;
+            margin: 0;
+        }
+
+        canvas{
+            border: 1px solid red;
+            position: sticky;
+            top: 0;
+            left: 0;
+        }
+
+        .container{
+            overflow: scroll;
+        }
+
+        .sub-container {
+            width: 5376px;
+            height: 2688px;
+            position: relative;
+        }
+
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="sub-container">
+            <canvas id="canvas" width="1024" height="800"></canvas>
+        </div>
+    </div>
+
+    <script src="dist/app.min.js"></script>
+</body>
+</html>
