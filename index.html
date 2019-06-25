@@ -5,40 +5,135 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
     <style>
 
         body{
             background-color: ivory;
             margin: 0;
+            overflow: hidden;
+            font-family: arial;
         }
 
-        canvas{
-            border: 1px solid red;
-            position: sticky;
+        nav {
+            width: 200px;
+            height: 100%;
+            position: fixed;
+            background: #e0e0e0;
             top: 0;
-            left: 0;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .container{
-            overflow: scroll;
+        .container_effect {
+            width: 80%;
         }
 
-        .sub-container {
+        #canvas{
             width: 5376px;
             height: 2688px;
-            position: relative;
+            transform-origin: 0px 0px 0px;
+            transform: scale(0.2) translate(0, 0);
+            align-self: flex-start;
+        }
+
+        #container {
+            padding-left: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #zoom {
+            background: #222;
+            color: white;
+            border-radius: 40px;
+            width: 100px;
+            text-align: center;
+            padding: 10px 5px;
+        }
+
+        #selection_canvas {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: calc(100% - 200px);
+            height: 100%
+
+        }
+
+        /* Modification du style des sliders */
+
+        .ui-state-default, .ui-slider-range, .ui-state-hover, .ui-state-active, .ui-state-focus {
+            background: #00ffff !important;
+            color: black !important;
+        }
+
+
+        #circleSize span, #brightness span, #improve span, #red span, #green span, #blue span {
+            text-align: center !important;
         }
 
     </style>
     
 </head>
 <body>
-    <div class="container">
-        <div class="sub-container">
-            <canvas id="canvas" width="1024" height="800"></canvas>
-        </div>
-    </div>
 
+    <nav>
+        <button id="back">Back</button>
+        <button id="next">Next</button>
+        <button id="cancel">Cancel</button>
+        <button id="save">Save</button>
+
+        <div class="container_effect">
+            <p>Mode</p>
+            <div class="container_rect">
+                <label for="rect">Rectangle</label>
+                <input name="mode" id="rect" type="radio"><br>
+            </div>
+            
+            <div class="container_circle">
+                <label for="circle">Cercle</label>
+                <input name="mode" id="circle" type="radio" checked>
+            </div>
+        </div>
+
+        <div class="container_effect">
+                <p>Taille du flou</p>
+                <div id="circleSize" class="slider"></div>
+            </div>
+        <div class="container_effect">
+            <p>Luminosité</p>
+            <div id="brightness" class="slider"></div>
+        </div>
+        <div class="container_effect">
+            <p>Amélioration photo</p>
+            <div id="improve" class="slider"></div>
+        </div>
+        <div class="container_effect">
+            <p>Rouge</p>
+            <div id="red" class="slider"></div>
+        </div>
+        <div class="container_effect">
+            <p>Vert</p>
+            <div id="green" class="slider"></div>
+        </div>
+        <div class="container_effect">
+            <p>Bleu</p>
+            <div id="blue" class="slider"></div>
+        </div>
+
+    </nav>
+
+    <div id="container">
+        <p id="zoom">Zoom : <span id="zoom-value">20</span></p>
+    </div>
+    <!--<canvas width="5376" height="2688" id="canvas"></canvas>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
     <script src="dist/app.min.js"></script>
 </body>
 </html>

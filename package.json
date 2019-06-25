@@ -13,6 +13,7 @@
   "dependencies": {
     "browserify": "^16.2.3",
     "jquery": "^3.4.1",
+    "jquery-ui": "^1.12.1",
     "pixi-filters": "^3.0.3",
     "pixi.js": "^5.0.4"
   }
